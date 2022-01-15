@@ -1,0 +1,409 @@
+openapi: 3.0.3
+info:
+  title: VyrapApp
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8181'
+paths:
+  /api/profile/importLastTwentyTwits:
+    post:
+      summary: 'Son 20 twiti içe aktar'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/twit:
+    get:
+      summary: 'Twit listesi'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                twitter_account:
+                  type: string
+                  description: ''
+                  example: ab
+              required:
+                - twitter_account
+      security: []
+    post:
+      summary: 'Yeni twit ekle'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                twit:
+                  type: string
+                  description: ''
+                  example: dolore
+                status:
+                  type: boolean
+                  description: ''
+                  example: true
+              required:
+                - twit
+                - status
+      security: []
+  '/api/twit/{id}':
+    get:
+      summary: 'Twit görüntüle.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Twit güncelle'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                twit:
+                  type: string
+                  description: 'Must not be greater than 1000 characters.'
+                  example: qvwjzblmbfblctbdxjouqozwxxemilqibhjvrjbctwojsqjtomxvyimgyjlotufgbvzrfpdatwfixdoxjlsrdckqhgravfadnstfdkeanmwcbebeqhvpfnlme
+                status:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - twit
+                - status
+      security: []
+    delete:
+      summary: 'Twit sil'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the twit.'
+        example: 17
+        required: true
+        schema:
+          type: integer
+  /api/auth/register:
+    post:
+      summary: 'Yeni kullanıcı kayıt'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: earum
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: chadrick92@example.org
+                phone:
+                  type: string
+                  description: 'Must be at least 10 characters. Must not be greater than 10 characters.'
+                  example: nvdyubrcad
+                password:
+                  type: string
+                  description: ''
+                  example: fuga
+                twitter_account:
+                  type: string
+                  description: ''
+                  example: perspiciatis
+              required:
+                - name
+                - email
+                - phone
+                - password
+                - twitter_account
+      security: []
+  /api/auth/login:
+    post:
+      summary: 'Oturum aç'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: pacocha.eriberto@example.com
+                password:
+                  type: string
+                  description: ''
+                  example: excepturi
+              required:
+                - email
+                - password
+      security: []
+  /api/auth/verify/email:
+    post:
+      summary: 'E-posta adresi doğrulama'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: ''
+                  example: dolorem
+                code:
+                  type: string
+                  description: 'Must be at least 4 characters. Must not be greater than 4 characters.'
+                  example: ysup
+              required:
+                - email
+                - code
+      security: []
+  /api/auth/verify/phone:
+    post:
+      summary: 'Telefon numarası doğrulama'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                  description: ''
+                  example: sed
+                code:
+                  type: string
+                  description: 'Must be at least 4 characters. Must not be greater than 4 characters.'
+                  example: ain
+              required:
+                - phone
+                - code
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
