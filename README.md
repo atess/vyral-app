@@ -1,13 +1,20 @@
-## Kurulum
+## Installation
 
+```
+git clone https://github.com/atess/vyral-app.git
+```
+```
+cd .\vyral-app\
+```
+```
+composer install
+```
 ```
 ./vendor/bin/sail up
 ```
-
 ```
 ./vendor/bin/sail artisan migrate
 ```
-
 
 ## Test
 ```
