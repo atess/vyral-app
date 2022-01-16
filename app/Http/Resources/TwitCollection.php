@@ -5,7 +5,7 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class TwitCollection extends ResourceCollection
 {
-    protected $pagination;
+    protected PaginationResource $pagination;
 
     public function __construct($resource)
     {
