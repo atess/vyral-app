@@ -71,15 +71,4 @@ class User extends Authenticatable
             ->orderBy('created_at', 'desc')
             ->limit(20);
     }
-
-    /**
-     * Twitler yerine random 20 film kaydı alındı ve response'daki
-     * film açıklaması alanı kullanıcının twit'i olarak kaydedildi.
-     *
-     * @throws Exception
-     */
-    public function importLastTwentyTwits()
-    {
-
-    }
 }
