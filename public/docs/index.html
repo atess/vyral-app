@@ -70,39 +70,53 @@
                                                 </ul>
                     
                     <ul id="tocify-header-2" class="tocify-header">
-                <li class="tocify-item level-1" data-unique="endpoints">
-                    <a href="#endpoints">Endpoints</a>
+                <li class="tocify-item level-1" data-unique="authentication">
+                    <a href="#authentication">Authentication</a>
                 </li>
-                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-profile-importLastTwentyTwits">
-                        <a href="#endpoints-POSTapi-profile-importLastTwentyTwits">Son 20 twiti içe aktar</a>
+                                    <ul id="tocify-subheader-authentication" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-register">
+                        <a href="#authentication-POSTapi-auth-register">Yeni kullanıcı kayıt</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-twit">
-                        <a href="#endpoints-GETapi-twit">Twit listesi</a>
+                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-login">
+                        <a href="#authentication-POSTapi-auth-login">Oturum aç</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-twit">
-                        <a href="#endpoints-POSTapi-twit">Yeni twit ekle</a>
+                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-verify-email">
+                        <a href="#authentication-POSTapi-auth-verify-email">E-posta adresi doğrulama</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-twit--id-">
-                        <a href="#endpoints-GETapi-twit--id-">Twit görüntüle.</a>
+                                    <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-verify-phone">
+                        <a href="#authentication-POSTapi-auth-verify-phone">Telefon numarası doğrulama</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-PUTapi-twit--id-">
-                        <a href="#endpoints-PUTapi-twit--id-">Twit güncelle</a>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-3" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="profile">
+                    <a href="#profile">Profile</a>
+                </li>
+                                    <ul id="tocify-subheader-profile" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="profile-POSTapi-profile-importLastTwentyTwits">
+                        <a href="#profile-POSTapi-profile-importLastTwentyTwits">Son 20 twiti içe aktar</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-twit--id-">
-                        <a href="#endpoints-DELETEapi-twit--id-">Twit sil</a>
+                                                    </ul>
+                            </ul>
+                    <ul id="tocify-header-4" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="twit">
+                    <a href="#twit">Twit</a>
+                </li>
+                                    <ul id="tocify-subheader-twit" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="twit-GETapi-twit">
+                        <a href="#twit-GETapi-twit">Twit listesi</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-register">
-                        <a href="#endpoints-POSTapi-auth-register">Yeni kullanıcı kayıt</a>
+                                    <li class="tocify-item level-2" data-unique="twit-POSTapi-twit">
+                        <a href="#twit-POSTapi-twit">Yeni twit ekle</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-login">
-                        <a href="#endpoints-POSTapi-auth-login">Oturum aç</a>
+                                    <li class="tocify-item level-2" data-unique="twit-GETapi-twit--id-">
+                        <a href="#twit-GETapi-twit--id-">Twit görüntüle</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-verify-email">
-                        <a href="#endpoints-POSTapi-auth-verify-email">E-posta adresi doğrulama</a>
+                                    <li class="tocify-item level-2" data-unique="twit-PUTapi-twit--id-">
+                        <a href="#twit-PUTapi-twit--id-">Twit güncelle</a>
                     </li>
-                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-auth-verify-phone">
-                        <a href="#endpoints-POSTapi-auth-verify-phone">Telefon numarası doğrulama</a>
+                                    <li class="tocify-item level-2" data-unique="twit-DELETEapi-twit--id-">
+                        <a href="#twit-DELETEapi-twit--id-">Twit sil</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -116,7 +130,7 @@
                             <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
                     </ul>
         <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 15 2022</li>
+        <li>Last updated: January 16 2022</li>
     </ul>
 </div>
 
@@ -133,658 +147,15 @@ You can switch the language used with the tabs at the top right (or from the nav
 <pre><code class="language-yaml">http://localhost:8181</code></pre>
 
         <h1 id="authenticating-requests">Authenticating requests</h1>
-<p>This API is not authenticated.</p>
+<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
+<p>You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.</p>
 
-        <h1 id="endpoints">Endpoints</h1>
+        <h1 id="authentication">Authentication</h1>
 
     
 
-            <h2 id="endpoints-POSTapi-profile-importLastTwentyTwits">Son 20 twiti içe aktar</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-profile-importLastTwentyTwits">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8181/api/profile/importLastTwentyTwits" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8181/api/profile/importLastTwentyTwits"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-profile-importLastTwentyTwits">
-</span>
-<span id="execution-results-POSTapi-profile-importLastTwentyTwits" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-profile-importLastTwentyTwits"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-profile-importLastTwentyTwits"></code></pre>
-</span>
-<span id="execution-error-POSTapi-profile-importLastTwentyTwits" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-profile-importLastTwentyTwits"></code></pre>
-</span>
-<form id="form-POSTapi-profile-importLastTwentyTwits" data-method="POST"
-      data-path="api/profile/importLastTwentyTwits"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-profile-importLastTwentyTwits', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-profile-importLastTwentyTwits"
-                    onclick="tryItOut('POSTapi-profile-importLastTwentyTwits');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-profile-importLastTwentyTwits"
-                    onclick="cancelTryOut('POSTapi-profile-importLastTwentyTwits');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-profile-importLastTwentyTwits" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/profile/importLastTwentyTwits</code></b>
-        </p>
-                    </form>
-
-            <h2 id="endpoints-GETapi-twit">Twit listesi</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-twit">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8181/api/twit" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"twitter_account\": \"ab\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8181/api/twit"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "twitter_account": "ab"
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-twit">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
-
-<code class="language-json">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-twit" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-twit"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-twit"></code></pre>
-</span>
-<span id="execution-error-GETapi-twit" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-twit"></code></pre>
-</span>
-<form id="form-GETapi-twit" data-method="GET"
-      data-path="api/twit"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-twit', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-twit"
-                    onclick="tryItOut('GETapi-twit');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-twit"
-                    onclick="cancelTryOut('GETapi-twit');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-twit" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/twit</code></b>
-        </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>twitter_account</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="twitter_account"
-               data-endpoint="GETapi-twit"
-               value="ab"
-               data-component="body" hidden>
-    <br>
-
-        </p>
-        </form>
-
-            <h2 id="endpoints-POSTapi-twit">Yeni twit ekle</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-twit">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost:8181/api/twit" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"twit\": \"dolore\",
-    \"status\": true
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8181/api/twit"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "twit": "dolore",
-    "status": true
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-twit">
-</span>
-<span id="execution-results-POSTapi-twit" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-twit"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-twit"></code></pre>
-</span>
-<span id="execution-error-POSTapi-twit" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-twit"></code></pre>
-</span>
-<form id="form-POSTapi-twit" data-method="POST"
-      data-path="api/twit"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-twit', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-twit"
-                    onclick="tryItOut('POSTapi-twit');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-twit"
-                    onclick="cancelTryOut('POSTapi-twit');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-twit" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/twit</code></b>
-        </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>twit</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="twit"
-               data-endpoint="POSTapi-twit"
-               value="dolore"
-               data-component="body" hidden>
-    <br>
-
-        </p>
-                <p>
-            <b><code>status</code></b>&nbsp;&nbsp;<small>boolean</small>  &nbsp;
-                <label data-endpoint="POSTapi-twit" hidden>
-            <input type="radio" name="status"
-                   value="true"
-                   data-endpoint="POSTapi-twit"
-                   data-component="body"
-            >
-            <code>true</code>
-        </label>
-        <label data-endpoint="POSTapi-twit" hidden>
-            <input type="radio" name="status"
-                   value="false"
-                   data-endpoint="POSTapi-twit"
-                   data-component="body"
-            >
-            <code>false</code>
-        </label>
-    <br>
-
-        </p>
-        </form>
-
-            <h2 id="endpoints-GETapi-twit--id-">Twit görüntüle.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-twit--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost:8181/api/twit/17" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8181/api/twit/17"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-twit--id-">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary>
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre>
-        </details>         <pre>
-
-<code class="language-json">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-twit--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-twit--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-twit--id-"></code></pre>
-</span>
-<span id="execution-error-GETapi-twit--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-twit--id-"></code></pre>
-</span>
-<form id="form-GETapi-twit--id-" data-method="GET"
-      data-path="api/twit/{id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-twit--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-twit--id-"
-                    onclick="tryItOut('GETapi-twit--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-twit--id-"
-                    onclick="cancelTryOut('GETapi-twit--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-twit--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/twit/{id}</code></b>
-        </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="GETapi-twit--id-"
-               value="17"
-               data-component="url" hidden>
-    <br>
-<p>The ID of the twit.</p>
-            </p>
-                    </form>
-
-            <h2 id="endpoints-PUTapi-twit--id-">Twit güncelle</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-PUTapi-twit--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PUT \
-    "http://localhost:8181/api/twit/2" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"twit\": \"qvwjzblmbfblctbdxjouqozwxxemilqibhjvrjbctwojsqjtomxvyimgyjlotufgbvzrfpdatwfixdoxjlsrdckqhgravfadnstfdkeanmwcbebeqhvpfnlme\",
-    \"status\": false
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8181/api/twit/2"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "twit": "qvwjzblmbfblctbdxjouqozwxxemilqibhjvrjbctwojsqjtomxvyimgyjlotufgbvzrfpdatwfixdoxjlsrdckqhgravfadnstfdkeanmwcbebeqhvpfnlme",
-    "status": false
-};
-
-fetch(url, {
-    method: "PUT",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PUTapi-twit--id-">
-</span>
-<span id="execution-results-PUTapi-twit--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PUTapi-twit--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-twit--id-"></code></pre>
-</span>
-<span id="execution-error-PUTapi-twit--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-twit--id-"></code></pre>
-</span>
-<form id="form-PUTapi-twit--id-" data-method="PUT"
-      data-path="api/twit/{id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-twit--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-twit--id-"
-                    onclick="tryItOut('PUTapi-twit--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-twit--id-"
-                    onclick="cancelTryOut('PUTapi-twit--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-twit--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/twit/{id}</code></b>
-        </p>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/twit/{id}</code></b>
-        </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="PUTapi-twit--id-"
-               value="2"
-               data-component="url" hidden>
-    <br>
-<p>The ID of the twit.</p>
-            </p>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <p>
-            <b><code>twit</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-                <input type="text"
-               name="twit"
-               data-endpoint="PUTapi-twit--id-"
-               value="qvwjzblmbfblctbdxjouqozwxxemilqibhjvrjbctwojsqjtomxvyimgyjlotufgbvzrfpdatwfixdoxjlsrdckqhgravfadnstfdkeanmwcbebeqhvpfnlme"
-               data-component="body" hidden>
-    <br>
-<p>Must not be greater than 1000 characters.</p>
-        </p>
-                <p>
-            <b><code>status</code></b>&nbsp;&nbsp;<small>boolean</small>  &nbsp;
-                <label data-endpoint="PUTapi-twit--id-" hidden>
-            <input type="radio" name="status"
-                   value="true"
-                   data-endpoint="PUTapi-twit--id-"
-                   data-component="body"
-            >
-            <code>true</code>
-        </label>
-        <label data-endpoint="PUTapi-twit--id-" hidden>
-            <input type="radio" name="status"
-                   value="false"
-                   data-endpoint="PUTapi-twit--id-"
-                   data-component="body"
-            >
-            <code>false</code>
-        </label>
-    <br>
-
-        </p>
-        </form>
-
-            <h2 id="endpoints-DELETEapi-twit--id-">Twit sil</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-twit--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8181/api/twit/3" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8181/api/twit/3"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-twit--id-">
-</span>
-<span id="execution-results-DELETEapi-twit--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-twit--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-twit--id-"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-twit--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-twit--id-"></code></pre>
-</span>
-<form id="form-DELETEapi-twit--id-" data-method="DELETE"
-      data-path="api/twit/{id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-twit--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-twit--id-"
-                    onclick="tryItOut('DELETEapi-twit--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-twit--id-"
-                    onclick="cancelTryOut('DELETEapi-twit--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-twit--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/twit/{id}</code></b>
-        </p>
-                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <p>
-                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-                <input type="number"
-               name="id"
-               data-endpoint="DELETEapi-twit--id-"
-               value="3"
-               data-component="url" hidden>
-    <br>
-<p>The ID of the twit.</p>
-            </p>
-                    </form>
-
-            <h2 id="endpoints-POSTapi-auth-register">Yeni kullanıcı kayıt</h2>
+            <h2 id="authentication-POSTapi-auth-register">Yeni kullanıcı kayıt</h2>
 
 <p>
 </p>
@@ -801,11 +172,11 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"earum\",
-    \"email\": \"chadrick92@example.org\",
-    \"phone\": \"nvdyubrcad\",
-    \"password\": \"fuga\",
-    \"twitter_account\": \"perspiciatis\"
+    \"name\": \"vitae\",
+    \"email\": \"okling@example.net\",
+    \"phone\": \"nxv\",
+    \"password\": \"sit\",
+    \"twitter_account\": \"et\"
 }"
 </code></pre></div>
 
@@ -821,11 +192,11 @@ const headers = {
 };
 
 let body = {
-    "name": "earum",
-    "email": "chadrick92@example.org",
-    "phone": "nvdyubrcad",
-    "password": "fuga",
-    "twitter_account": "perspiciatis"
+    "name": "vitae",
+    "email": "okling@example.net",
+    "phone": "nxv",
+    "password": "sit",
+    "twitter_account": "et"
 };
 
 fetch(url, {
@@ -837,7 +208,38 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-auth-register">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;data&quot;: {
+        &quot;name&quot;: &quot;Desmond Hirthe&quot;,
+        &quot;email&quot;: &quot;treutel.wendell@example.com&quot;,
+        &quot;phone&quot;: null,
+        &quot;twitter_account&quot;: null,
+        &quot;token&quot;: null,
+        &quot;token_type&quot;: null
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json">{
+    &quot;id&quot;: 4,
+    &quot;name&quot;: &quot;Jessica Jones&quot;,
+    &quot;email&quot;: &quot;test@test.com&quot;,
+    &quot;twitter_account&quot;: &quot;vyralapp&quot;,
+    &quot;phone&quot;: &quot;5551112233&quot;,
+    &quot;token&quot;: &quot;5|ESIpqgOQzqkmZ2jkmwZE20l3BthE5UygkUUctyBi&quot;,
+    &quot;token_type&quot;: &quot;Bearer&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-auth-register" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-auth-register"></span>:
@@ -883,7 +285,7 @@ fetch(url, {
                 <input type="text"
                name="name"
                data-endpoint="POSTapi-auth-register"
-               value="earum"
+               value="vitae"
                data-component="body" hidden>
     <br>
 
@@ -893,7 +295,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-register"
-               value="chadrick92@example.org"
+               value="okling@example.net"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -903,7 +305,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-auth-register"
-               value="nvdyubrcad"
+               value="nxv"
                data-component="body" hidden>
     <br>
 <p>Must be at least 10 characters. Must not be greater than 10 characters.</p>
@@ -913,7 +315,7 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-register"
-               value="fuga"
+               value="sit"
                data-component="body" hidden>
     <br>
 
@@ -923,14 +325,14 @@ fetch(url, {
                 <input type="text"
                name="twitter_account"
                data-endpoint="POSTapi-auth-register"
-               value="perspiciatis"
+               value="et"
                data-component="body" hidden>
     <br>
 
         </p>
         </form>
 
-            <h2 id="endpoints-POSTapi-auth-login">Oturum aç</h2>
+            <h2 id="authentication-POSTapi-auth-login">Oturum aç</h2>
 
 <p>
 </p>
@@ -947,8 +349,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"pacocha.eriberto@example.com\",
-    \"password\": \"excepturi\"
+    \"email\": \"akeebler@example.net\",
+    \"password\": \"velit\"
 }"
 </code></pre></div>
 
@@ -964,8 +366,8 @@ const headers = {
 };
 
 let body = {
-    "email": "pacocha.eriberto@example.com",
-    "password": "excepturi"
+    "email": "akeebler@example.net",
+    "password": "velit"
 };
 
 fetch(url, {
@@ -1023,7 +425,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-login"
-               value="pacocha.eriberto@example.com"
+               value="akeebler@example.net"
                data-component="body" hidden>
     <br>
 <p>Must be a valid email address.</p>
@@ -1033,14 +435,14 @@ fetch(url, {
                 <input type="text"
                name="password"
                data-endpoint="POSTapi-auth-login"
-               value="excepturi"
+               value="velit"
                data-component="body" hidden>
     <br>
 
         </p>
         </form>
 
-            <h2 id="endpoints-POSTapi-auth-verify-email">E-posta adresi doğrulama</h2>
+            <h2 id="authentication-POSTapi-auth-verify-email">E-posta adresi doğrulama</h2>
 
 <p>
 </p>
@@ -1057,8 +459,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"dolorem\",
-    \"code\": \"ysup\"
+    \"email\": \"id\",
+    \"code\": \"\"
 }"
 </code></pre></div>
 
@@ -1074,8 +476,8 @@ const headers = {
 };
 
 let body = {
-    "email": "dolorem",
-    "code": "ysup"
+    "email": "id",
+    "code": ""
 };
 
 fetch(url, {
@@ -1133,7 +535,7 @@ fetch(url, {
                 <input type="text"
                name="email"
                data-endpoint="POSTapi-auth-verify-email"
-               value="dolorem"
+               value="id"
                data-component="body" hidden>
     <br>
 
@@ -1143,14 +545,14 @@ fetch(url, {
                 <input type="text"
                name="code"
                data-endpoint="POSTapi-auth-verify-email"
-               value="ysup"
+               value=""
                data-component="body" hidden>
     <br>
 <p>Must be at least 4 characters. Must not be greater than 4 characters.</p>
         </p>
         </form>
 
-            <h2 id="endpoints-POSTapi-auth-verify-phone">Telefon numarası doğrulama</h2>
+            <h2 id="authentication-POSTapi-auth-verify-phone">Telefon numarası doğrulama</h2>
 
 <p>
 </p>
@@ -1167,8 +569,8 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"phone\": \"sed\",
-    \"code\": \"ain\"
+    \"phone\": \"ut\",
+    \"code\": \"o\"
 }"
 </code></pre></div>
 
@@ -1184,8 +586,8 @@ const headers = {
 };
 
 let body = {
-    "phone": "sed",
-    "code": "ain"
+    "phone": "ut",
+    "code": "o"
 };
 
 fetch(url, {
@@ -1243,7 +645,7 @@ fetch(url, {
                 <input type="text"
                name="phone"
                data-endpoint="POSTapi-auth-verify-phone"
-               value="sed"
+               value="ut"
                data-component="body" hidden>
     <br>
 
@@ -1253,12 +655,731 @@ fetch(url, {
                 <input type="text"
                name="code"
                data-endpoint="POSTapi-auth-verify-phone"
-               value="ain"
+               value="o"
                data-component="body" hidden>
     <br>
 <p>Must be at least 4 characters. Must not be greater than 4 characters.</p>
         </p>
         </form>
+
+        <h1 id="profile">Profile</h1>
+
+    
+
+            <h2 id="profile-POSTapi-profile-importLastTwentyTwits">Son 20 twiti içe aktar</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-profile-importLastTwentyTwits">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8181/api/profile/importLastTwentyTwits" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8181/api/profile/importLastTwentyTwits"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-profile-importLastTwentyTwits">
+</span>
+<span id="execution-results-POSTapi-profile-importLastTwentyTwits" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-profile-importLastTwentyTwits"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-profile-importLastTwentyTwits"></code></pre>
+</span>
+<span id="execution-error-POSTapi-profile-importLastTwentyTwits" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-profile-importLastTwentyTwits"></code></pre>
+</span>
+<form id="form-POSTapi-profile-importLastTwentyTwits" data-method="POST"
+      data-path="api/profile/importLastTwentyTwits"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-profile-importLastTwentyTwits', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-profile-importLastTwentyTwits"
+                    onclick="tryItOut('POSTapi-profile-importLastTwentyTwits');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-profile-importLastTwentyTwits"
+                    onclick="cancelTryOut('POSTapi-profile-importLastTwentyTwits');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-profile-importLastTwentyTwits" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/profile/importLastTwentyTwits</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-profile-importLastTwentyTwits" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-profile-importLastTwentyTwits"
+                                                                data-component="header"></label>
+        </p>
+                </form>
+
+        <h1 id="twit">Twit</h1>
+
+    
+
+            <h2 id="twit-GETapi-twit">Twit listesi</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-twit">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8181/api/twit" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"twitter_account\": \"dolore\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8181/api/twit"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "twitter_account": "dolore"
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-twit">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-twit" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-twit"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-twit"></code></pre>
+</span>
+<span id="execution-error-GETapi-twit" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-twit"></code></pre>
+</span>
+<form id="form-GETapi-twit" data-method="GET"
+      data-path="api/twit"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-twit', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-twit"
+                    onclick="tryItOut('GETapi-twit');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-twit"
+                    onclick="cancelTryOut('GETapi-twit');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-twit" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/twit</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-twit" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-twit"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>twitter_account</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="twitter_account"
+               data-endpoint="GETapi-twit"
+               value="dolore"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="twit-POSTapi-twit">Yeni twit ekle</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-twit">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8181/api/twit" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"twit\": \"explicabo\",
+    \"status\": true
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8181/api/twit"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "twit": "explicabo",
+    "status": true
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-twit">
+</span>
+<span id="execution-results-POSTapi-twit" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-twit"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-twit"></code></pre>
+</span>
+<span id="execution-error-POSTapi-twit" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-twit"></code></pre>
+</span>
+<form id="form-POSTapi-twit" data-method="POST"
+      data-path="api/twit"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-twit', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-twit"
+                    onclick="tryItOut('POSTapi-twit');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-twit"
+                    onclick="cancelTryOut('POSTapi-twit');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-twit" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/twit</code></b>
+        </p>
+                <p>
+            <label id="auth-POSTapi-twit" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="POSTapi-twit"
+                                                                data-component="header"></label>
+        </p>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>twit</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="twit"
+               data-endpoint="POSTapi-twit"
+               value="explicabo"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>boolean</small>  &nbsp;
+                <label data-endpoint="POSTapi-twit" hidden>
+            <input type="radio" name="status"
+                   value="true"
+                   data-endpoint="POSTapi-twit"
+                   data-component="body"
+            >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-twit" hidden>
+            <input type="radio" name="status"
+                   value="false"
+                   data-endpoint="POSTapi-twit"
+                   data-component="body"
+            >
+            <code>false</code>
+        </label>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="twit-GETapi-twit--id-">Twit görüntüle</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-twit--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8181/api/twit/13" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8181/api/twit/13"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-twit--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-twit--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-twit--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-twit--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-twit--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-twit--id-"></code></pre>
+</span>
+<form id="form-GETapi-twit--id-" data-method="GET"
+      data-path="api/twit/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-twit--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-twit--id-"
+                    onclick="tryItOut('GETapi-twit--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-twit--id-"
+                    onclick="cancelTryOut('GETapi-twit--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-twit--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/twit/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-GETapi-twit--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="GETapi-twit--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="GETapi-twit--id-"
+               value="13"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the twit.</p>
+            </p>
+                    </form>
+
+            <h2 id="twit-PUTapi-twit--id-">Twit güncelle</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-twit--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://localhost:8181/api/twit/20" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"twit\": \"hsqvtwufoslrxvqihrehldbrrqcwgtjwficcagzfgzyexjjylhmabdlafaxhwanlbjxdwdtcztrzxmcftttvwmiexnzpvbkrowijlkmzvnjrkqbgqemtkhhimfeqzgbpxefnykayjlxjoucfcbmhkgvcnvdaiecdzufcvzywfxpayqqyjarxacywfpjncpplnfeznkexsaoelqhxenaogdpaqlyeamducmveavpenmvuqkuuarznqgvkkxhioydmzwigymttywjhxtyihbmymebkdbdinixivujoaedarrbltallglrhchulfgziuisyqswdlbsvipeodtbftawcnagnalgqjncvraihcxumfatstndcedntugmmyirvvmjkiorwbwrfzebsadquqiluvohlxcrrtvtbpsoaalqahsjhfykzxxffwattqvhlbsuvoqspzkvmqivjleilkhsjvsuytnebsdqjswzqjgsalkrxbfgqksvltp\",
+    \"status\": true
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8181/api/twit/20"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "twit": "hsqvtwufoslrxvqihrehldbrrqcwgtjwficcagzfgzyexjjylhmabdlafaxhwanlbjxdwdtcztrzxmcftttvwmiexnzpvbkrowijlkmzvnjrkqbgqemtkhhimfeqzgbpxefnykayjlxjoucfcbmhkgvcnvdaiecdzufcvzywfxpayqqyjarxacywfpjncpplnfeznkexsaoelqhxenaogdpaqlyeamducmveavpenmvuqkuuarznqgvkkxhioydmzwigymttywjhxtyihbmymebkdbdinixivujoaedarrbltallglrhchulfgziuisyqswdlbsvipeodtbftawcnagnalgqjncvraihcxumfatstndcedntugmmyirvvmjkiorwbwrfzebsadquqiluvohlxcrrtvtbpsoaalqahsjhfykzxxffwattqvhlbsuvoqspzkvmqivjleilkhsjvsuytnebsdqjswzqjgsalkrxbfgqksvltp",
+    "status": true
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-twit--id-">
+</span>
+<span id="execution-results-PUTapi-twit--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-twit--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-twit--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-twit--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-twit--id-"></code></pre>
+</span>
+<form id="form-PUTapi-twit--id-" data-method="PUT"
+      data-path="api/twit/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-twit--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-twit--id-"
+                    onclick="tryItOut('PUTapi-twit--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-twit--id-"
+                    onclick="cancelTryOut('PUTapi-twit--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-twit--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/twit/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/twit/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-PUTapi-twit--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="PUTapi-twit--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="PUTapi-twit--id-"
+               value="20"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the twit.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>twit</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="twit"
+               data-endpoint="PUTapi-twit--id-"
+               value="hsqvtwufoslrxvqihrehldbrrqcwgtjwficcagzfgzyexjjylhmabdlafaxhwanlbjxdwdtcztrzxmcftttvwmiexnzpvbkrowijlkmzvnjrkqbgqemtkhhimfeqzgbpxefnykayjlxjoucfcbmhkgvcnvdaiecdzufcvzywfxpayqqyjarxacywfpjncpplnfeznkexsaoelqhxenaogdpaqlyeamducmveavpenmvuqkuuarznqgvkkxhioydmzwigymttywjhxtyihbmymebkdbdinixivujoaedarrbltallglrhchulfgziuisyqswdlbsvipeodtbftawcnagnalgqjncvraihcxumfatstndcedntugmmyirvvmjkiorwbwrfzebsadquqiluvohlxcrrtvtbpsoaalqahsjhfykzxxffwattqvhlbsuvoqspzkvmqivjleilkhsjvsuytnebsdqjswzqjgsalkrxbfgqksvltp"
+               data-component="body" hidden>
+    <br>
+<p>Must not be greater than 1000 characters.</p>
+        </p>
+                <p>
+            <b><code>status</code></b>&nbsp;&nbsp;<small>boolean</small>  &nbsp;
+                <label data-endpoint="PUTapi-twit--id-" hidden>
+            <input type="radio" name="status"
+                   value="true"
+                   data-endpoint="PUTapi-twit--id-"
+                   data-component="body"
+            >
+            <code>true</code>
+        </label>
+        <label data-endpoint="PUTapi-twit--id-" hidden>
+            <input type="radio" name="status"
+                   value="false"
+                   data-endpoint="PUTapi-twit--id-"
+                   data-component="body"
+            >
+            <code>false</code>
+        </label>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="twit-DELETEapi-twit--id-">Twit sil</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-twit--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8181/api/twit/19" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8181/api/twit/19"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-twit--id-">
+</span>
+<span id="execution-results-DELETEapi-twit--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-twit--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-twit--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-twit--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-twit--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-twit--id-" data-method="DELETE"
+      data-path="api/twit/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-twit--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-twit--id-"
+                    onclick="tryItOut('DELETEapi-twit--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-twit--id-"
+                    onclick="cancelTryOut('DELETEapi-twit--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-twit--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/twit/{id}</code></b>
+        </p>
+                <p>
+            <label id="auth-DELETEapi-twit--id-" hidden>Authorization header:
+                <b><code>Bearer </code></b><input type="text"
+                                                                name="Authorization"
+                                                                data-prefix="Bearer "
+                                                                data-endpoint="DELETEapi-twit--id-"
+                                                                data-component="header"></label>
+        </p>
+                <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="id"
+               data-endpoint="DELETEapi-twit--id-"
+               value="19"
+               data-component="url" hidden>
+    <br>
+<p>The ID of the twit.</p>
+            </p>
+                    </form>
 
     
 

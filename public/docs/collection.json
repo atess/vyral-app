@@ -10,13 +10,156 @@
     ],
     "info": {
         "name": "VyrapApp",
-        "_postman_id": "c2cb3a6f-f20d-4162-b6a8-2428e39a1d21",
+        "_postman_id": "8746a6f7-9dc6-48d2-9217-d97d6d2fb857",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
         {
-            "name": "Endpoints",
+            "name": "Authentication",
+            "description": "",
+            "item": [
+                {
+                    "name": "Yeni kullan\u0131c\u0131 kay\u0131t",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"vitae\",\"email\":\"okling@example.net\",\"phone\":\"nxv\",\"password\":\"sit\",\"twitter_account\":\"et\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"data\":{\"name\":\"Desmond Hirthe\",\"email\":\"treutel.wendell@example.com\",\"phone\":null,\"twitter_account\":null,\"token\":null,\"token_type\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n \"id\": 4,\n \"name\": \"Jessica Jones\",\n \"email\": \"test@test.com\",\n \"twitter_account\": \"vyralapp\",\n \"phone\": \"5551112233\",\n \"token\": \"5|ESIpqgOQzqkmZ2jkmwZE20l3BthE5UygkUUctyBi\",\n \"token_type\": \"Bearer\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Oturum a\u00e7",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"akeebler@example.net\",\"password\":\"velit\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "E-posta adresi do\u011frulama",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/verify\/email",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/verify\/email"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"id\",\"code\":\"\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Telefon numaras\u0131 do\u011frulama",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/auth\/verify\/phone",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/auth\/verify\/phone"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"phone\":\"ut\",\"code\":\"o\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Profile",
             "description": "",
             "item": [
                 {
@@ -40,13 +183,16 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
-                },
+                }
+            ]
+        },
+        {
+            "name": "Twit",
+            "description": "",
+            "item": [
                 {
                     "name": "Twit listesi",
                     "request": {
@@ -69,12 +215,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"twitter_account\":\"ab\"}"
+                            "raw": "{\"twitter_account\":\"dolore\"}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -120,17 +263,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"twit\":\"dolore\",\"status\":true}"
+                            "raw": "{\"twit\":\"explicabo\",\"status\":true}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
                 },
                 {
-                    "name": "Twit g\u00f6r\u00fcnt\u00fcle.",
+                    "name": "Twit g\u00f6r\u00fcnt\u00fcle",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -141,7 +281,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "17",
+                                    "value": "13",
                                     "description": "The ID of the twit."
                                 }
                             ]
@@ -158,10 +298,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": [
                         {
@@ -197,7 +334,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "20",
                                     "description": "The ID of the twit."
                                 }
                             ]
@@ -215,12 +352,9 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"twit\":\"qvwjzblmbfblctbdxjouqozwxxemilqibhjvrjbctwojsqjtomxvyimgyjlotufgbvzrfpdatwfixdoxjlsrdckqhgravfadnstfdkeanmwcbebeqhvpfnlme\",\"status\":false}"
+                            "raw": "{\"twit\":\"hsqvtwufoslrxvqihrehldbrrqcwgtjwficcagzfgzyexjjylhmabdlafaxhwanlbjxdwdtcztrzxmcftttvwmiexnzpvbkrowijlkmzvnjrkqbgqemtkhhimfeqzgbpxefnykayjlxjoucfcbmhkgvcnvdaiecdzufcvzywfxpayqqyjarxacywfpjncpplnfeznkexsaoelqhxenaogdpaqlyeamducmveavpenmvuqkuuarznqgvkkxhioydmzwigymttywjhxtyihbmymebkdbdinixivujoaedarrbltallglrhchulfgziuisyqswdlbsvipeodtbftawcnagnalgqjncvraihcxumfatstndcedntugmmyirvvmjkiorwbwrfzebsadquqiluvohlxcrrtvtbpsoaalqahsjhfykzxxffwattqvhlbsuvoqspzkvmqivjleilkhsjvsuytnebsdqjswzqjgsalkrxbfgqksvltp\",\"status\":true}"
                         },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
                 },
@@ -236,7 +370,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "3",
+                                    "value": "19",
                                     "description": "The ID of the twit."
                                 }
                             ]
@@ -253,134 +387,7 @@
                             }
                         ],
                         "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Yeni kullan\u0131c\u0131 kay\u0131t",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/auth\/register",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/auth\/register"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"earum\",\"email\":\"chadrick92@example.org\",\"phone\":\"nvdyubrcad\",\"password\":\"fuga\",\"twitter_account\":\"perspiciatis\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Oturum a\u00e7",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/auth\/login",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/auth\/login"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"pacocha.eriberto@example.com\",\"password\":\"excepturi\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "E-posta adresi do\u011frulama",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/auth\/verify\/email",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/auth\/verify\/email"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"email\":\"dolorem\",\"code\":\"ysup\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                },
-                {
-                    "name": "Telefon numaras\u0131 do\u011frulama",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/auth\/verify\/phone",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/auth\/verify\/phone"
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\"phone\":\"sed\",\"code\":\"ain\"}"
-                        },
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
+                        "description": ""
                     },
                     "response": []
                 }
@@ -388,6 +395,6 @@
         }
     ],
     "auth": {
-        "type": "noauth"
+        "type": "bearer"
     }
 }

@@ -27,6 +27,16 @@ class AuthController extends Controller
      * @param RegisterRequest $request
      * @return JsonResponse
      * @throws Exception
+     * @group Authentication
+     * @response 200 {
+     *  "id": 4,
+     *  "name": "Jessica Jones",
+     *  "email": "test@test.com",
+     *  "twitter_account": "vyralapp",
+     *  "phone": "5551112233",
+     *  "token": "5|ESIpqgOQzqkmZ2jkmwZE20l3BthE5UygkUUctyBi",
+     *  "token_type": "Bearer"
+     * }
      */
     public function register(RegisterRequest $request): JsonResponse
     {
@@ -69,6 +79,7 @@ class AuthController extends Controller
      * @param EmailVerifyRequest $request
      * @return JsonResponse
      * @throws Exception
+     * @group Authentication
      */
     public function emailVerify(EmailVerifyRequest $request): JsonResponse
     {
@@ -94,6 +105,7 @@ class AuthController extends Controller
      * @param PhoneVerifyRequest $request
      * @return JsonResponse
      * @throws Exception
+     * @group Authentication
      */
     public function phoneVerify(PhoneVerifyRequest $request): JsonResponse
     {
@@ -119,6 +131,7 @@ class AuthController extends Controller
      * @param LoginRequest $request
      * @return JsonResponse
      * @throws Exception
+     * @group Authentication
      */
     public function login(LoginRequest $request): JsonResponse
     {
@@ -140,6 +153,7 @@ class AuthController extends Controller
      * @param int $code
      * @param string|null $message
      * @return JsonResponse
+     * @group Authentication
      */
     private function authResponse($user, int $code = 200, ?string $message = null): JsonResponse
     {

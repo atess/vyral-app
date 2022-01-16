@@ -7,223 +7,6 @@ servers:
   -
     url: 'http://localhost:8181'
 paths:
-  /api/profile/importLastTwentyTwits:
-    post:
-      summary: 'Son 20 twiti içe aktar'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-  /api/twit:
-    get:
-      summary: 'Twit listesi'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                twitter_account:
-                  type: string
-                  description: ''
-                  example: ab
-              required:
-                - twitter_account
-      security: []
-    post:
-      summary: 'Yeni twit ekle'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                twit:
-                  type: string
-                  description: ''
-                  example: dolore
-                status:
-                  type: boolean
-                  description: ''
-                  example: true
-              required:
-                - twit
-                - status
-      security: []
-  '/api/twit/{id}':
-    get:
-      summary: 'Twit görüntüle.'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Endpoints
-      security: []
-    put:
-      summary: 'Twit güncelle'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                twit:
-                  type: string
-                  description: 'Must not be greater than 1000 characters.'
-                  example: qvwjzblmbfblctbdxjouqozwxxemilqibhjvrjbctwojsqjtomxvyimgyjlotufgbvzrfpdatwfixdoxjlsrdckqhgravfadnstfdkeanmwcbebeqhvpfnlme
-                status:
-                  type: boolean
-                  description: ''
-                  example: false
-              required:
-                - twit
-                - status
-      security: []
-    delete:
-      summary: 'Twit sil'
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Content-Type
-          description: ''
-          example: application/json
-          schema:
-            type: string
-        -
-          in: header
-          name: Accept
-          description: ''
-          example: application/json
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Endpoints
-      security: []
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the twit.'
-        example: 17
-        required: true
-        schema:
-          type: integer
   /api/auth/register:
     post:
       summary: 'Yeni kullanıcı kayıt'
@@ -243,9 +26,45 @@ paths:
           example: application/json
           schema:
             type: string
-      responses: {  }
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 4
+                  name: 'Jessica Jones'
+                  email: test@test.com
+                  twitter_account: vyralapp
+                  phone: '5551112233'
+                  token: 5|ESIpqgOQzqkmZ2jkmwZE20l3BthE5UygkUUctyBi
+                  token_type: Bearer
+                properties:
+                  id:
+                    type: integer
+                    example: 4
+                  name:
+                    type: string
+                    example: 'Jessica Jones'
+                  email:
+                    type: string
+                    example: test@test.com
+                  twitter_account:
+                    type: string
+                    example: vyralapp
+                  phone:
+                    type: string
+                    example: '5551112233'
+                  token:
+                    type: string
+                    example: 5|ESIpqgOQzqkmZ2jkmwZE20l3BthE5UygkUUctyBi
+                  token_type:
+                    type: string
+                    example: Bearer
       tags:
-        - Endpoints
+        - Authentication
       requestBody:
         required: true
         content:
@@ -256,23 +75,23 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: earum
+                  example: vitae
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: chadrick92@example.org
+                  example: okling@example.net
                 phone:
                   type: string
                   description: 'Must be at least 10 characters. Must not be greater than 10 characters.'
-                  example: nvdyubrcad
+                  example: nxv
                 password:
                   type: string
                   description: ''
-                  example: fuga
+                  example: sit
                 twitter_account:
                   type: string
                   description: ''
-                  example: perspiciatis
+                  example: et
               required:
                 - name
                 - email
@@ -301,7 +120,7 @@ paths:
             type: string
       responses: {  }
       tags:
-        - Endpoints
+        - Authentication
       requestBody:
         required: true
         content:
@@ -312,11 +131,11 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: pacocha.eriberto@example.com
+                  example: akeebler@example.net
                 password:
                   type: string
                   description: ''
-                  example: excepturi
+                  example: velit
               required:
                 - email
                 - password
@@ -342,7 +161,7 @@ paths:
             type: string
       responses: {  }
       tags:
-        - Endpoints
+        - Authentication
       requestBody:
         required: true
         content:
@@ -353,11 +172,11 @@ paths:
                 email:
                   type: string
                   description: ''
-                  example: dolorem
+                  example: id
                 code:
                   type: string
                   description: 'Must be at least 4 characters. Must not be greater than 4 characters.'
-                  example: ysup
+                  example: ''
               required:
                 - email
                 - code
@@ -383,7 +202,7 @@ paths:
             type: string
       responses: {  }
       tags:
-        - Endpoints
+        - Authentication
       requestBody:
         required: true
         content:
@@ -394,16 +213,284 @@ paths:
                 phone:
                   type: string
                   description: ''
-                  example: sed
+                  example: ut
                 code:
                   type: string
                   description: 'Must be at least 4 characters. Must not be greater than 4 characters.'
-                  example: ain
+                  example: o
               required:
                 - phone
                 - code
       security: []
+  /api/profile/importLastTwentyTwits:
+    post:
+      summary: 'Son 20 twiti içe aktar'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Profile
+  /api/twit:
+    get:
+      summary: 'Twit listesi'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Twit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                twitter_account:
+                  type: string
+                  description: ''
+                  example: dolore
+              required:
+                - twitter_account
+    post:
+      summary: 'Yeni twit ekle'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Twit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                twit:
+                  type: string
+                  description: ''
+                  example: explicabo
+                status:
+                  type: boolean
+                  description: ''
+                  example: true
+              required:
+                - twit
+                - status
+  '/api/twit/{id}':
+    get:
+      summary: 'Twit görüntüle'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Twit
+    put:
+      summary: 'Twit güncelle'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Twit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                twit:
+                  type: string
+                  description: 'Must not be greater than 1000 characters.'
+                  example: hsqvtwufoslrxvqihrehldbrrqcwgtjwficcagzfgzyexjjylhmabdlafaxhwanlbjxdwdtcztrzxmcftttvwmiexnzpvbkrowijlkmzvnjrkqbgqemtkhhimfeqzgbpxefnykayjlxjoucfcbmhkgvcnvdaiecdzufcvzywfxpayqqyjarxacywfpjncpplnfeznkexsaoelqhxenaogdpaqlyeamducmveavpenmvuqkuuarznqgvkkxhioydmzwigymttywjhxtyihbmymebkdbdinixivujoaedarrbltallglrhchulfgziuisyqswdlbsvipeodtbftawcnagnalgqjncvraihcxumfatstndcedntugmmyirvvmjkiorwbwrfzebsadquqiluvohlxcrrtvtbpsoaalqahsjhfykzxxffwattqvhlbsuvoqspzkvmqivjleilkhsjvsuytnebsdqjswzqjgsalkrxbfgqksvltp
+                status:
+                  type: boolean
+                  description: ''
+                  example: true
+              required:
+                - twit
+                - status
+    delete:
+      summary: 'Twit sil'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Twit
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the twit.'
+        example: 13
+        required: true
+        schema:
+          type: integer
 tags:
   -
-    name: Endpoints
+    name: Authentication
     description: ''
+  -
+    name: Profile
+    description: ''
+  -
+    name: Twit
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

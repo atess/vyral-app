@@ -17,6 +17,8 @@ class ProfileController extends Controller
      * Son 20 twiti içe aktar
      *
      * @throws Exception
+     * @group Profile
+     * @authenticated
      */
     public function importLastTwentyTwits(ImportLastTwentyTwitsRequest $request): JsonResponse
     {

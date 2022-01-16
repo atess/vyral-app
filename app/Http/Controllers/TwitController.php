@@ -22,6 +22,8 @@ class TwitController extends Controller
      *
      * @param TwitsRequest $request
      * @return JsonResponse
+     * @group Twit
+     * @authenticated
      */
     public function index(TwitsRequest $request): JsonResponse
     {
@@ -43,6 +45,8 @@ class TwitController extends Controller
      *
      * @param StoreTwitRequest $request
      * @return JsonResponse
+     * @group Twit
+     * @authenticated
      */
     public function store(StoreTwitRequest $request): JsonResponse
     {
@@ -58,11 +62,13 @@ class TwitController extends Controller
     }
 
     /**
-     * Twit görüntüle.
+     * Twit görüntüle
      *
      * @param TwitRequest $request
      * @param Twit $twit
      * @return JsonResponse
+     * @group Twit
+     * @authenticated
      */
     public function show(TwitRequest $request, Twit $twit): JsonResponse
     {
@@ -75,6 +81,8 @@ class TwitController extends Controller
      * @param UpdateTwitRequest $request
      * @param Twit $twit
      * @return JsonResponse
+     * @group Twit
+     * @authenticated
      */
     public function update(UpdateTwitRequest $request, Twit $twit): JsonResponse
     {
@@ -95,6 +103,8 @@ class TwitController extends Controller
      * @param DestroyTwitRequest $request
      * @param Twit $twit
      * @return JsonResponse
+     * @group Twit
+     * @authenticated
      */
     public function destroy(DestroyTwitRequest $request, Twit $twit): JsonResponse
     {
