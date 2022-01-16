@@ -12,7 +12,7 @@ class AuthTest extends TestCase
      *
      * @return void
      */
-    public function test_register()
+    public function test_yeni_kullanici_kayit()
     {
         $this->postJson(route('auth.register'), [
             'name' => 'Test User',
@@ -47,7 +47,7 @@ class AuthTest extends TestCase
      *
      * @return void
      */
-    public function test_login()
+    public function test_kullanici_girisi()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -79,7 +79,7 @@ class AuthTest extends TestCase
      *
      * @return void
      */
-    public function test_phone_verify()
+    public function test_telefon_numarasi_dogrulama()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -117,7 +117,7 @@ class AuthTest extends TestCase
      *
      * @return void
      */
-    public function test_email_verify()
+    public function test_eposta_adresi_dogrulama()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),

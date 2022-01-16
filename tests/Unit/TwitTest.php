@@ -17,7 +17,7 @@ class TwitTest extends TestCase
      * @return void
      * @throws Exception
      */
-    public function test_get_twits()
+    public function test_oturumu_acik_kullanici_twit_listesi()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -62,7 +62,7 @@ class TwitTest extends TestCase
      * @return void
      * @throws Exception
      */
-    public function test_unauthorized_get_twits()
+    public function test_oturumu_kapali_kullanici_twitleri_goremez()
     {
         $url = route('twit.index') . '?' . http_build_query(['twitter_account' => 'vyralapp']);
 
@@ -76,7 +76,7 @@ class TwitTest extends TestCase
      * @return void
      * @throws Exception
      */
-    public function test_get_last_twenty_twits()
+    public function test_kullanicinin_son_20_twitini_ice_aktar()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -97,7 +97,7 @@ class TwitTest extends TestCase
      * @return void
      * @throws Exception
      */
-    public function test_create_twit()
+    public function test_yeni_twit_ekle()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -136,7 +136,7 @@ class TwitTest extends TestCase
      * @return void
      * @throws Exception
      */
-    public function test_show_my_twit()
+    public function test_kendi_twitini_goruntule()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -173,7 +173,7 @@ class TwitTest extends TestCase
      * @return void
      * @throws Exception
      */
-    public function test_different_users_show_active_tweet()
+    public function test_farkli_kullanici_aktif_durumdaki_twiti_goruntuler()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -200,12 +200,12 @@ class TwitTest extends TestCase
     }
 
     /**
-     * Farklı bir kullanıcının aktif durumdaki twiti görüntülenemez
+     * Farklı bir kullanıcının pasif durumdaki twiti görüntülenemez
      *
      * @return void
      * @throws Exception
      */
-    public function test_different_users_not_show_passive_tweet()
+    public function test_farkli_kullanici_aktif_olmayan_twiti_goruntuleyemez()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -237,7 +237,7 @@ class TwitTest extends TestCase
      * @return void
      * @throws Exception
      */
-    public function test_update_twit()
+    public function test_kullanici_kendi_twitini_gunceller()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -284,7 +284,7 @@ class TwitTest extends TestCase
      * @return void
      * @throws Exception
      */
-    public function test_delete_twit()
+    public function test_kullanici_kendi_twitini_siler()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -325,7 +325,7 @@ class TwitTest extends TestCase
      * @return void
      * @throws Exception
      */
-    public function test_different_user_cannot_update_my_tweet()
+    public function test_farkli_kullanici_kendine_ait_olmayan_twiti_guncelleyemez()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
@@ -366,7 +366,7 @@ class TwitTest extends TestCase
      * @return void
      * @throws Exception
      */
-    public function test_different_user_cannot_delete_my_tweet()
+    public function test_farkli_kullanici_kendine_ait_olmayan_twiti_silemez()
     {
         $user = User::factory()->create([
             'password' => bcrypt('secret'),
